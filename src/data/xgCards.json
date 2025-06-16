@@ -1,0 +1,29 @@
+[
+  {
+    "era": "Shooting Star",
+    "member": "Jurin",
+    "cards": [
+      {
+        "id": "ss-jurin-1",
+        "image": "/card-images/filler.png",
+        "name": "Filler PC 1"
+      },
+      {
+        "id": "ss-jurin-2",
+        "image": "/card-images/filler.png",
+        "name": "Filler PC 2"
+      }
+    ]
+  },
+  {
+    "era": "Shooting Star",
+    "member": "Cocona",
+    "cards": [
+      {
+        "id": "ss-cocona-1",
+        "image": "/card-images/filler.png",
+        "name": "Filler PC 1"
+      }
+    ]
+  }
+]

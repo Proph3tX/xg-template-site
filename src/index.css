@@ -1,0 +1,22 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enable dark mode support */
+@layer base {
+  html {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  html.dark {
+    background-color: #111111;
+    color: white;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+}
