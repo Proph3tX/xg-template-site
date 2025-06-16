@@ -20,3 +20,30 @@
     height: 100%;
   }
 }
+
+/* General styles for the card grid */
+.card-grid {
+  display: grid;
+  gap: 15%; /* Adjust this for spacing between cards */
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+  grid-auto-rows: auto;
+  padding: 10px;
+}
+
+.card {
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  z-index: 1; /* Ensure it overlaps other cards */
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+  }
+}
