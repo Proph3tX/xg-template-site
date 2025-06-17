@@ -56,3 +56,66 @@
   z-index: 10;
   box-shadow: 0 0px 15px rgba(161, 161, 161, 0.747);
 }
+
+.card-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  line-height: .1;
+  text-align: center;
+}
+
+.card-subname {
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-top: 0.2rem;
+  line-height: 1;
+  text-align: center;
+}
+
+
+/* Member-based border colors */
+.member-chisa {
+  border: 2px solid #FFD700; /* Yellow */
+}
+.member-hinata {
+  border: 2px solid #ADD8E6; /* Light Blue */
+}
+.member-jurin {
+  border: 2px solid #A9A9A9; /* Grey */
+}
+.member-harvey {
+  border: 2px solid #9370DB; /* Purple */
+}
+.member-juria {
+  border: 2px solid #FFA500; /* Orange */
+}
+.member-maya {
+  border: 2px solid #FF4500; /* Red */
+}
+.member-cocona {
+  border: 2px solid #32CD32; /* Green */
+}
+
+
+
+/* ERA COLORS */
+.era-mascara {
+  color: #e74c3c; /* red */
+}
+
+.era-shootingstar {
+  color: #3498db; /* blue */
+}
+.era-newdna {
+  color: #9b59b6; /* purple */
+}
+.era-awe {
+  color: #747cc4; /* blueish */
+}
+.era-wokeup {
+  color: #f39c12; /* example orange */
+}
+.era-millionplaces {
+  color: #2ef0f7; /* example orange */
+}
