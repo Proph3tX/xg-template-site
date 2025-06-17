@@ -12,6 +12,12 @@ const memberColors = {
   Cocona: "#4ade80",    // green-400
 };
 
+const gridStyle = {
+  display: "grid",
+  gap: "1rem",
+  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+};
+
 function CardGrid({ data }) {
   return (
     <div className="w-full flex justify-center">
@@ -21,19 +27,18 @@ function CardGrid({ data }) {
             <h2
               style={{
                 color: memberColors[member.member] || "#fff",
-                fontSize: "3rem", // Adjust this value to control size
-                textAlign: "center"
+                fontSize: "3rem",
+                textAlign: "center",
+                textTransform: "uppercase",
               }}
               className="font-bold mb-4"
             >
               {member.member}
             </h2>
-            <div className="grid grid-cols-8 gap-6">
+            <div style={gridStyle}>
               {member.cards.map((card) => (
                 <div key={card.id} className="w-full flex flex-col items-center">
                   <Card card={card} />
-                  <div className="text-center text-sm mt-1">
-                  </div>
                 </div>
               ))}
             </div>
