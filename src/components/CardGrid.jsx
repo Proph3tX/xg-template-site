@@ -16,13 +16,17 @@ function CardGrid({ data }) {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[1400px] flex flex-col gap-10 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40">
+        <div className="flex flex-col items-center mb-6">
+          <h1 className="text-3xl font-bold text-center">XG Photocard Tracker</h1>
+        </div>
         {data.map((member) => (
           <div key={member.member}>
             <h2
               style={{
                 color: memberColors[member.member] || "#fff",
-                fontSize: "3rem", // Adjust this value to control size
-                textAlign: "center"
+                fontSize: "2rem",
+                textTransform: "uppercase",
+                textAlign: "center",
               }}
               className="font-bold mb-4"
             >
