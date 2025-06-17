@@ -13,17 +13,26 @@ function Card({ card }) {
   return (
     <div
       onClick={() => setOwned(!owned)}
-      className={`cursor-pointer border-2 rounded-lg p-2 transition-all duration-300 card-hover ${
-        owned ? "border-green-400" : "border-gray-700"
-      }`}
+      className="cursor-pointer transition-all duration-300 w-full max-w-[180px]"
     >
-      <img
-        src={card.image}
-        alt={card.name}
-        style={{ width: '100%', height: 'auto', aspectRatio: '7 / 10' }}
-        className="object-cover rounded mb-2 mx-auto"
-      />
-      <p className="text-center text-sm">{card.name}</p>
+      <div className="p-2">
+        <div
+          className={`border-2 rounded-lg transition-shadow duration-300 hover:scale-110 hover:z-10 ${
+            owned
+              ? "border-green-400 shadow-[0_0px_2px_rgba(34,197,94,0.4)]"
+              : "border-gray-700 shadow-[0_0px_15px_rgba(161,161,161,0.747)]"
+          }`}
+        >
+          <img
+            src={card.image}
+            alt={card.name}
+            style={{ width: '100%', height: 'auto' }}
+            className="object-cover rounded mx-auto"
+          />
+        </div>
+        <p className="text-center text-base font-bold leading-none mt-1 text-red-500">{card.name}</p>
+        <p className="text-center text-sm mt-2 leading-none">{card.subname}</p>
+      </div>
     </div>
   );
 }

@@ -4,17 +4,23 @@ import Card from "./Card";
 
 function CardGrid({ data }) {
   return (
-    <div className="space-y-12">
-      {data.map((group) => (
-        <div key={group.member}>
-          <h2 className="text-xl font-semibold mb-4 text-center">{group.member}</h2>
-          <div className="grid-container">
-            {group.cards.map((card) => (
-              <Card key={card.id} card={card} />
-            ))}
+    <div className="w-full flex justify-center">
+      <div className="w-full max-w-[1600px] flex flex-col gap-10 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40">
+        {data.map((member) => (
+          <div key={member.member}>
+            <h2 className="text-2xl font-semibold mb-4">{member.member}</h2>
+            <div className="grid grid-cols-8 gap-6">
+              {member.cards.map((card) => (
+                <div key={card.id} className="w-full flex flex-col items-center">
+                  <Card card={card} />
+                  <div className="text-center text-sm mt-1">
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

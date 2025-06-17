@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">XG Photocard Tracker - Shooting Star</h1>
+        <h1 className="text-3xl font-bold">XG Photocard Tracker </h1>
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600"
