@@ -25,6 +25,7 @@
 }
 
 /* Grid and card layout enhancements */
+/*
 .grid-container {
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
@@ -34,6 +35,7 @@
   margin: 0 auto 4rem auto;
   box-sizing: border-box;
 }
+  */
 
 .member-section {
   margin-bottom: 4rem;
@@ -58,7 +60,7 @@
 }
 
 .card-name {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   font-weight: 700;
   margin-top: 1.5rem;
   line-height: .1;
@@ -118,4 +120,34 @@
 }
 .era-millionplaces {
   color: #2ef0f7; /* example orange */
+}
+
+.card-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+@media (max-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

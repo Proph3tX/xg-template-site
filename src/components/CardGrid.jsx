@@ -14,8 +14,8 @@ const memberColors = {
 
 const gridStyle = {
   display: "grid",
-  gap: "1rem",
-  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+  gap: ".1rem",
+  gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))",
 };
 
 function CardGrid({ data }) {
