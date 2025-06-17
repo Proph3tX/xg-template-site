@@ -30,7 +30,7 @@ function Card({ card }) {
             className="object-cover rounded mx-auto"
           />
         </div>
-        <p className="text-center text-base font-bold leading-none mt-1 text-red-500">{card.name}</p>
+        <p className={`text-center text-sm ${owned ? 'font-bold text-green-500' : ''}`}>{card.name}</p>
         <p className="text-center text-sm mt-2 leading-none">{card.subname}</p>
       </div>
     </div>
