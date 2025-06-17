@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Enable dark mode support */
+/* Enable dark mode support with background fade */
 @layer base {
   html {
     background-color: white;
@@ -21,29 +21,20 @@
   }
 }
 
-/* General styles for the card grid */
-.card-grid {
+/* Grid and card layout enhancements */
+.grid-container {
   display: grid;
-  gap: 15%; /* Adjust this for spacing between cards */
-  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
-  grid-auto-rows: auto;
-  padding: 10px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2%;
+  padding: 3%;
 }
 
-.card {
-  position: relative;
-  transition: transform 0.3s ease-in-out;
+.card-hover {
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  z-index: 0;
 }
 
-/* Hover effect */
-.card:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover */
-  z-index: 1; /* Ensure it overlaps other cards */
-}
-
-/* Responsive layout for mobile */
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
-  }
+.card-hover:hover {
+  transform: scale(1.08);
+  z-index: 10;
 }

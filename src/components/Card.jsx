@@ -13,12 +13,14 @@ function Card({ card }) {
   return (
     <div
       onClick={() => setOwned(!owned)}
-      className={`cursor-pointer border-2 rounded-lg p-2 transition-all duration-300 ${owned ? "border-green-400" : "border-gray-700"}`}
+      className={`cursor-pointer border-2 rounded-lg p-2 transition-all duration-300 card-hover ${
+        owned ? "border-green-400" : "border-gray-700"
+      }`}
     >
       <img
         src={card.image}
         alt={card.name}
-        style={{ width: '112px', height: '160px' }}
+        style={{ width: '100%', height: 'auto', aspectRatio: '7 / 10' }}
         className="object-cover rounded mb-2 mx-auto"
       />
       <p className="text-center text-sm">{card.name}</p>

@@ -4,11 +4,11 @@ import Card from "./Card";
 
 function CardGrid({ data }) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       {data.map((group) => (
         <div key={group.member}>
-          <h2 className="text-xl font-semibold mb-4">{group.member}</h2>
-          <div className="flex flex-wrap gap-4">
+          <h2 className="text-xl font-semibold mb-4 text-center">{group.member}</h2>
+          <div className="grid-container">
             {group.cards.map((card) => (
               <Card key={card.id} card={card} />
             ))}
