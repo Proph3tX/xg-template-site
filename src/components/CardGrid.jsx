@@ -12,17 +12,35 @@ const memberColors = {
   Cocona: "#4ade80",    // green-400
 };
 
-const gridStyle = {
-  display: "grid",
-  gap: ".1rem",
-  gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))",
-};
+function CardGrid({ data, filters }) {
+  const filteredData = data
+    .map((member) => {
+      const filteredCards = member.cards.filter((card) => {
+        return (
+          (!filters.Member || member.member === filters.Member) &&
+          (!filters.Era || card.era === filters.Era) &&
+          (!filters.Type || card.type === filters.Type) &&
+          (!filters.Subtype || card.subtype === filters.Subtype)
+        );
+      });
 
-function CardGrid({ data }) {
+      return {
+        ...member,
+        cards: filteredCards,
+      };
+    })
+    .filter((member) => member.cards.length > 0);
+
+  const gridStyle = {
+    display: "grid",
+    gap: ".1rem",
+    gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))",
+  };
+
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center mt-10">
       <div className="w-full max-w-[1400px] flex flex-col gap-10 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40">
-        {data.map((member) => (
+        {filteredData.map((member) => (
           <div key={member.member}>
             <h2
               style={{

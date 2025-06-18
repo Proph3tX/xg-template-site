@@ -151,3 +151,8 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.custom-select {
+  font-family: 'Inter', sans-serif;
+  background-color: rgb(232, 232, 233);
+}

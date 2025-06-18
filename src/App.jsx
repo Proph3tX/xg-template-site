@@ -1,34 +1,39 @@
 // src/App.jsx
 import React, { useState, useEffect } from "react";
 import CardGrid from "./components/CardGrid";
+import FilterDropdown from "./components/FilterDropdown";
 import xgCards from "./data/xgCards.json";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
+
+  const [filters, setFilters] = useState({
+    Member: null,
+    Era: null,
+    Type: null,
+    Subtype: null,
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
   return (
-    <div className="min-h-screen w-full text-black dark:text-white p-4 transition-colors duration-300">
-      {/* Header with tracker title */}
-      <div className="flex justify-center mb-4">
-        <h1 className="text-3xl font-bold">XG Photocard Tracker</h1>
+    <div className="min-h-screen w-full text-black dark:text-white transition-colors duration-300 relative">
+      <div className="text-center text-3xl font-bold pt-6">XG Photocard Tracker</div>
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        style={{ position: "absolute", top: "3.5rem", right: "1rem", zIndex: 50 }}
+        className="bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-4 py-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
+      >
+       {darkMode ? "Light" : "Dark"}
+      </button>
+
+      <div className="flex justify-center mt-4">
+        <FilterDropdown filters={filters} setFilters={setFilters} data={xgCards} />
       </div>
 
-      {/* Toggle Button top-right */}
-      <div style={{ position: "absolute", top: "1rem", right: "1rem" }}>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-4 py-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
-        >
-          Toggle {darkMode ? "Light" : "Dark"} Mode
-        </button>
-      </div>
-
-      {/* Card Grid */}
-      <CardGrid data={xgCards} />
+      <CardGrid data={xgCards} filters={filters} />
     </div>
   );
 }
