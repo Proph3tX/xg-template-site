@@ -1,6 +1,8 @@
 // src/components/CardGrid.jsx
 import React from "react";
 import Card from "./Card";
+import { useState } from "react";
+import CardModal from "./CardModal";
 
 const memberColors = {
   Chisa: "#facc15",     // yellow-400
@@ -13,6 +15,7 @@ const memberColors = {
 };
 
 function CardGrid({ data, filters }) {
+  const [selectedCard, setSelectedCard] = useState(null);
   const filteredData = data
     .map((member) => {
       const filteredCards = member.cards.filter((card) => {
@@ -56,12 +59,16 @@ function CardGrid({ data, filters }) {
             <div style={gridStyle}>
               {member.cards.map((card) => (
                 <div key={card.id} className="w-full flex flex-col items-center">
-                  <Card card={card} />
+                  <Card card={card} onClick={() => setSelectedCard(card)} />
                 </div>
               ))}
             </div>
           </div>
         ))}
+
+        {selectedCard && (
+        <CardModal card={selectedCard} onClose={() => setSelectedCard(null)} />
+      )}
       </div>
     </div>
   );

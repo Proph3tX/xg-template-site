@@ -1,31 +1,36 @@
 // src/components/Card.jsx
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-function Card({ card }) {
-  const [owned, setOwned] = useState(() => {
-    return JSON.parse(localStorage.getItem(card.id)) || false;
-  });
+function Card({ card, onClick }) {
+  const cardNameClass = `card-name era-${(card.era || "")
+    .replace(/\s+/g, "")
+    .toLowerCase()}`;
 
-  useEffect(() => {
-    localStorage.setItem(card.id, JSON.stringify(owned));
-  }, [owned, card.id]);
+  const borderClass = `member-${(card.member || "").toLowerCase()}`;
 
   return (
     <div
-      onClick={() => setOwned(!owned)}
-      className="cursor-pointer transition-all duration-300 w-full max-w-[150px]"
+      onClick={() => onClick(card)}
+      className={`cursor-pointer transition-transform duration-300 hover:scale-105 rounded overflow-hidden ${borderClass}`}
+      style={{
+        borderRadius: "0.5rem",
+      }}
     >
-      <div className="rounded-lg overflow-hidden shadow-[0_0px_10px_rgba(197,197,197,.1)] transition-transform duration-300 hover:scale-110 hover:z-10">
+      <div
+        className="shadow-lg rounded-t"
+        style={{
+          boxShadow: "0 0 15px rgba(0, 0, 0, 10)",
+        }}
+      >
         <img
           src={card.image}
           alt={card.name}
-          className="w-full h-auto block"
-          style={{ aspectRatio: '6.5 / 10' }}
+          className="w-full h-auto object-cover rounded"
         />
       </div>
-      <div className="text-center mt-4 mb-4 space-y-5">
-      <p className={`card-name era-${card.era.replace(/\s+/g, '').toLowerCase()}`}>{card.name}</p>
-      <p className="card-subname">{card.subname}</p>
+      <div className="px-.1 pt-.5 pb-3 text-center">
+        <p className={`text-base font-bold ${cardNameClass}`}>{card.name}</p>
+        <p className="text-sm mt-3 text-gray-400">{card.subname}</p>
       </div>
     </div>
   );
