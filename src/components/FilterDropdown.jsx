@@ -32,8 +32,9 @@ function FilterDropdown({ filters, setFilters, data }) {
           key={category}
           value={filters[category] || ""}
           onChange={(e) => handleChange(category, e.target.value)}
-          className=" dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-600 px-4 py-2 rounded custom-select bg-black"
+          className="bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-600 px-4 py-2 rounded custom-select"
         >
+            <div className="bg-teal-500 p-4 text-white">Test Tailwind</div>
           <option value="">{`All ${category}s`}</option>
           {uniqueValues(category).map((val) => (
             <option key={val} value={val}>

@@ -23,8 +23,10 @@ function Card({ card }) {
           style={{ aspectRatio: '6.5 / 10' }}
         />
       </div>
+      <div className="text-center mt-4 mb-4 space-y-5">
       <p className={`card-name era-${card.era.replace(/\s+/g, '').toLowerCase()}`}>{card.name}</p>
       <p className="card-subname">{card.subname}</p>
+      </div>
     </div>
   );
 }
